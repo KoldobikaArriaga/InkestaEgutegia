@@ -2,8 +2,8 @@
  *  Egutegiko argazki-bozketa · Backend (Google Apps Script)
  *  ----------------------------------------------------------
  *  AURRETIK EGIN BEHARREKOA:
- *   1) Sortu Google Sheets bat eta kopiatu bere ID-a (URL-tik).
- *   2) Hemen behean SHEET_ID aldatu.
+ *   1) Sortu Google Sheets bat eta kopiatu bere ID-a edo URL osoa.
+ *   2) Hemen behean SHEET_ID aldatu (ID hutsa edo URL osoa, biak balio dute).
  *   3) Sarbide-kodea sortzeko: exekutatu sortuToken() (▷ Run) eta
  *      lortutako balioa TOKEN-en itsatsi.
  *   4) Gorde (💾).
@@ -18,12 +18,17 @@
  *  hemen SHEET_ID eta TOKEN benetako balioekin.
  ************************************************************/
 
-const SHEET_ID = 'UID del Google Sheets';
+// Google Sheets-en ID-a. Bi forma onartzen dira:
+//   · ID hutsa:   1AbC...XYZ
+//   · URL osoa:   https://docs.google.com/spreadsheets/d/1AbC...XYZ/edit
+const SHEET_ID = '19hp15jBNrc1aUBc1qWbrrLXxI46o8y1lLG3PwjJzISY';
 const SHEET_NAME = 'Bozkak';       // bozken orria
 const EMAITZA_SHEET = 'Emaitzak';  // laburpena
 
-// Emaitzen orri pribaturako sarbide-kodea (sortuToken() erabili).
-const TOKEN = 'ALDAKATU_KODEA_HONEN_ORDURA';
+// Emaitzen orri pribaturako sarbide-kodea.
+// EDOZEIN testu balio du: exekutatu sortuToken() (▷ Run) kodea sortzeko,
+// EDO asmatu bat zuk (adib. 'egutegia-2027-kx9p') eta hemen idatzi.
+const TOKEN = 'GORAEUSKALHERRIAASKATUTA';
 
 const MIN = 5;                    // gutxieneko aukeraketa
 const MAX = 6;                    // gehienezko aukeraketa
@@ -108,7 +113,7 @@ function emaitzak(token) {
 }
 
 function kalkulatuEmaitzak() {
-  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const ss = SpreadsheetApp.openById(lortuSheetId());
   const sh = ss.getSheetByName(SHEET_NAME);
   if (!sh || sh.getLastRow() < 2) return { bozkak: 0, emaitzak: [] };
 
@@ -141,7 +146,7 @@ function taldekatu() {
     return [];
   }
 
-  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const ss = SpreadsheetApp.openById(lortuSheetId());
   const esh = ss.getSheetByName(EMAITZA_SHEET) || ss.insertSheet(EMAITZA_SHEET);
   esh.clear();
   esh.getRange(1, 1, 1, 4).setValues([['Postua', 'Argazkia', 'Botoak', 'Ehunekoa']]).setFontWeight('bold');
@@ -163,7 +168,7 @@ function taldekatu() {
 
 /* ---------------- Lagungarriak ---------------- */
 function lortuOrria() {
-  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const ss = SpreadsheetApp.openById(lortuSheetId());
   return ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
 }
 
@@ -196,7 +201,8 @@ function beteIlera(sh, fila, izena, email, oharra, hautatuak) {
   sh.getRange(fila, 1, 1, balioak.length).setValues([balioak]);
 }
 
-// Sarbide-kode bat sortu eta Logger-era erakutsi (▷ Run).
+// (AUKERAKOA) Sarbide-kode bat sortu eta Logger-era erakutsi (▷ Run).
+// Gogoratu: TOKEN-ak edozein testu izan daiteke; funtzio hau ez da derrigorrezkoa.
 function sortuToken() {
   const t = Utilities.getUuid().replace(/-/g, '').slice(0, 20);
   Logger.log('Zure TOKEN-a: ' + t);
@@ -212,6 +218,13 @@ function jsonpErantzuna(res, cb) {
 
 function kodea(n) {
   return (n < 10 ? '0' : '') + n;
+}
+
+// SHEET_ID eremuan ID hutsa nahiz URL osoa onartzeko.
+function lortuSheetId() {
+  const v = String(SHEET_ID).trim();
+  const m = v.match(/\/d\/([a-zA-Z0-9-_]+)/);
+  return m ? m[1] : v;
 }
 
 function kendu(v) {
