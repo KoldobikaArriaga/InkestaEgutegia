@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#16181d" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Emaitzak · Egutegia</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="resultados.css" />
+</head>
+<body class="admin-gorputza">
+
+<header class="goiburua">
+  <div class="wrap">
+    <p class="goiburu-txikia">Barne orria · Emaitzak</p>
+    <h1>Egutegiko bozketaren emaitzak</h1>
+    <p class="goiburu-testua">
+      Orri pribatua. Sarbide-kodea sartu emaitzak ikusteko. Orri hau ez da
+      bozketa-orritik lotzen: esteka honen berri baino ez dakitenek ikusiko dute.
+    </p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Sarbide-kodea -->
+  <section id="sarrera" class="karta karta-admin" hidden>
+    <h2>Sarbide-kodea</h2>
+    <p class="karta-testua">
+      <code>Code.gs</code> fitxategiko <code>TOKEN</code> eremuan jarri dozun kodea idatzi.
+    </p>
+    <form id="sarrera-form" novalidate>
+      <label class="eremua">
+        <span>Sarbide-kodea</span>
+        <input type="password" id="token" autocomplete="current-password" />
+      </label>
+      <p id="sarrera-errorea" class="errorea" hidden></p>
+      <div class="karta-botoiak">
+        <button class="botoia botoia-nagusia" type="submit">Sartu</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Kargatzen -->
+  <p id="kargatzen" class="mezu-kargatzen" hidden>Emaitzak kargatzen…</p>
+
+  <!-- Emaitzak -->
+  <section id="emaitzak" hidden>
+    <div class="laburpena">
+      <div class="laburpen-txartela">
+        <span class="zenbaki" id="bozkak">0</span>
+        <span class="etiketak">bozketa</span>
+      </div>
+      <div class="laburpen-txartela">
+        <span class="zenbaki" id="argazkiak">24</span>
+        <span class="etiketak">argazki</span>
+      </div>
+      <div class="laburpen-ekintzak">
+        <button class="botoia" id="berritu" type="button">Berritu</button>
+        <button class="botoia botoia-biguna" id="irten" type="button">Irten</button>
+      </div>
+    </div>
+
+    <p id="eguneratze-ordua" class="eguneratze-ordua"></p>
+    <div id="zerrenda" class="zerrenda"></div>
+  </section>
+
+  <!-- Mezu orokorra -->
+  <p id="mezu-orokorra" class="errorea" hidden></p>
+
+</main>
+
+<script src="config.js"></script>
+<script src="photos.js"></script>
+<script src="resultados.js"></script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+:root {
+  --bg: #f6f5f3;
+  --bg-karta: #ffffff;
+  --testua: #16181d;
+  --testu-biguna: #5c6270;
+  --marra: #e4e2de;
+  --azentua: #c2410c;
+  --errorea: #b91c1c;
+  --erradioa: 14px;
+  --itzala: 0 6px 24px rgba(20, 20, 25, .08);
+}
+
+* { box-sizing: border-box; }
+
+html.blokeoa,
+html.blokeoa body { overflow: hidden; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--testua);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 92px;
+}
+
+.wrap { width: min(1180px, 100% - 2rem); margin-inline: auto; }
+
+/* ---------- Goiburua ---------- */
+.goiburua { background: #16181d; color: #fff; padding: 2.6rem 0 2.3rem; }
+.goiburu-txikia {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  color: #f0a884;
+  margin: 0 0 .6rem;
+}
+.goiburua h1 { font-size: clamp(1.5rem, 3.6vw, 2.5rem); margin: 0 0 .8rem; line-height: 1.13; }
+.goiburu-testua { color: #c9ccd4; max-width: 64ch; margin: 0; }
+
+/* ---------- Oharrak / agindua ---------- */
+.ohar-berria {
+  background: #fff8e6;
+  border: 1px solid #f0e0b0;
+  color: #7a5a00;
+  padding: .85rem 1rem;
+  border-radius: 12px;
+  margin: 1.3rem 0 0;
+  font-size: .92rem;
+}
+
+.agindua-barra {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: linear-gradient(var(--bg) 72%, rgba(246, 245, 243, 0));
+  padding: 1rem 0 .7rem;
+  margin-top: .4rem;
+}
+.agindua { margin: 0; font-weight: 600; }
+
+/* ---------- Argazki-sarea ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: .4rem 0 2rem;
+}
+
+.foto { margin: 0; cursor: pointer; position: relative; border-radius: var(--erradioa); }
+.foto:focus-visible { outline: 3px solid var(--azentua); outline-offset: 3px; border-radius: var(--erradioa); }
+
+.foto-media {
+  position: relative;
+  border-radius: var(--erradioa);
+  overflow: hidden;
+  background: #e9e7e3;
+  aspect-ratio: 4 / 3;
+  box-shadow: var(--itzala);
+}
+.foto-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+}
+.foto:hover .foto-media img { transform: scale(1.045); }
+
+.foto-zoom {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(15, 15, 20, .55);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .2s ease;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+.foto:hover .foto-zoom,
+.foto:focus-within .foto-zoom { opacity: 1; }
+
+.foto-tick {
+  position: absolute;
+  left: .55rem;
+  top: .55rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: var(--azentua);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  transform: scale(0);
+  transition: transform .18s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+}
+.foto.aukeratuta .foto-tick { transform: scale(1); }
+.foto.aukeratuta .foto-media { outline: 3px solid var(--azentua); }
+.foto.aukeratuta .foto-media img { transform: scale(1.02); }
+
+.foto-izenburua { font-size: .78rem; color: var(--testu-biguna); padding: .45rem .15rem 0; }
+
+/* ---------- Beheko barra ---------- */
+.barra {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, .93);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--marra);
+}
+.barra-edukia {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .8rem 0;
+}
+.kontagailua { font-variant-numeric: tabular-nums; font-weight: 600; }
+
+/* ---------- Botoiak ---------- */
+.botoia {
+  border: 1px solid var(--marra);
+  background: #fff;
+  color: var(--testua);
+  padding: .7rem 1.35rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .15s ease, filter .15s ease, opacity .15s ease;
+}
+.botoia:hover { background: #f2f0ec; }
+.botoia-nagusia { background: var(--azentua); border-color: var(--azentua); color: #fff; }
+.botoia-nagusia:hover { background: var(--azentua); filter: brightness(1.08); }
+.botoia:disabled { opacity: .45; cursor: not-allowed; }
+.botoia:disabled:hover { background: #fff; filter: none; }
+
+/* ---------- Overlay-ak ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(12, 12, 16, .84);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+.overlay[hidden] { display: none; }
+
+.overlay-itxi {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.overlay-itxi:hover { background: rgba(255, 255, 255, .26); }
+
+/* Lightbox */
+.lightbox-edukia {
+  max-width: min(1100px, 94vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .85rem;
+  animation: sartu .22s ease;
+}
+.lightbox-edukia img {
+  max-width: 100%;
+  max-height: 74vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+}
+.lightbox-ekintzak { display: flex; gap: .6rem; }
+
+/* Karta (formularioa / eskerrak) */
+.karta {
+  position: relative;
+  background: var(--bg-karta);
+  border-radius: 18px;
+  padding: 1.7rem;
+  width: min(470px, 100%);
+  max-height: 92vh;
+  overflow: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+  animation: sartu .22s ease;
+}
+.karta h2 { margin: 0 0 .5rem; font-size: 1.3rem; }
+.karta-testua { margin: 0 0 1.2rem; color: var(--testu-biguna); }
+.karta-zentroa { text-align: center; }
+.karta-botoiak { display: flex; gap: .6rem; justify-content: flex-end; margin-top: .4rem; }
+.karta-botoiak-zentroa { justify-content: center; }
+
+@keyframes sartu {
+  from { transform: translateY(14px) scale(.98); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+
+/* Formulario-eremuak */
+.eremua { display: block; margin-bottom: 1rem; }
+.eremua span { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .35rem; color: var(--testu-biguna); }
+.eremua input,
+.eremua textarea {
+  width: 100%;
+  padding: .7rem .8rem;
+  border: 1px solid var(--marra);
+  border-radius: 10px;
+  font: inherit;
+  background: #fcfbf9;
+  color: inherit;
+}
+.eremua input:focus,
+.eremua textarea:focus { outline: 2px solid var(--azentua); border-color: var(--azentua); }
+.errorea { color: var(--errorea); font-size: .9rem; margin: .1rem 0 .9rem; }
+
+.txalo { font-size: 3rem; line-height: 1; margin-bottom: .6rem; }
+
+/* Toast */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 104px;
+  transform: translate(-50%, 20px);
+  background: #16181d;
+  color: #fff;
+  padding: .7rem 1.15rem;
+  border-radius: 999px;
+  z-index: 60;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+  max-width: 90vw;
+  text-align: center;
+  font-size: .9rem;
+}
+.toast.ikusi { opacity: 1; transform: translate(-50%, 0); }
+
+@media (max-width: 520px) {
+  .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: .7rem; }
+  .goiburua { padding: 2rem 0 1.8rem; }
+}

@@ -1,0 +1,17 @@
+# Jatorrizko argazkiak ez dira inoiz igo behar (pisutsuak eta pribatuak)
+argazkiak/
+ordena.txt
+
+# Sistema eragilearen zabor-fitxategiak
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editoreen karpetak
+.vscode/
+.idea/
+
+# Ezkutatu sekretuak dituen fitxategirik balego
+# (Code.gs-ek balio errealak baditu, ez igo)
+secrets/
+*.local.js

@@ -1,0 +1,146 @@
+/* =========================================================
+ *  Emaitzen orri pribatua · estiloak
+ *  (styles.css-ko aldagaiekin batera erabiltzeko)
+ * ========================================================= */
+
+.admin-gorputza { padding-bottom: 2.5rem; }
+
+.karta-admin { width: min(520px, 100%); margin-top: 1.6rem; }
+
+.mezu-kargatzen {
+  padding: 3rem 0;
+  text-align: center;
+  color: var(--testu-biguna);
+  font-weight: 600;
+}
+
+/* ---------- Laburpena ---------- */
+.laburpena {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  align-items: stretch;
+  margin: 1.6rem 0 .5rem;
+}
+.laburpen-txartela {
+  background: #fff;
+  border: 1px solid var(--marra);
+  border-radius: 14px;
+  padding: .7rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 112px;
+  box-shadow: var(--itzala);
+}
+.laburpen-txartela .zenbaki {
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.laburpen-txartela .etiketak {
+  font-size: .76rem;
+  color: var(--testu-biguna);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.laburpen-ekintzak {
+  margin-left: auto;
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+}
+.eguneratze-ordua { color: var(--testu-biguna); font-size: .82rem; margin: .2rem 0 1.1rem; }
+
+/* ---------- Zerrenda ---------- */
+.zerrenda { display: flex; flex-direction: column; gap: .5rem; }
+
+.errenkada {
+  display: grid;
+  grid-template-columns: 2.5rem 84px 1fr;
+  align-items: center;
+  gap: .9rem;
+  background: #fff;
+  border: 1px solid var(--marra);
+  border-radius: 12px;
+  padding: .55rem .8rem;
+  box-shadow: var(--itzala);
+}
+.errenkada .pos {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--testu-biguna);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.errenkada .irudi {
+  width: 84px;
+  height: 63px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #e9e7e3;
+  display: block;
+}
+.datuak { min-width: 0; }
+.goian {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .6rem;
+  font-size: .85rem;
+  margin-bottom: .35rem;
+}
+.goian .arg {
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.goian .botoak {
+  color: var(--testu-biguna);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.barra2 {
+  height: 10px;
+  background: #eeebe6;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.barra2 > span {
+  display: block;
+  height: 100%;
+  background: #c9c6c0;
+  border-radius: 999px;
+  transition: width .6s ease;
+}
+
+/* Egutegirako 12 hautatuen nabarmentzea */
+.errenkada.top { border-color: #f0c4ab; }
+.errenkada.top .barra2 > span { background: var(--azentua); }
+.errenkada.top .pos { color: var(--azentua); }
+
+.mozketa {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  color: var(--azentua);
+  font-weight: 700;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin: 1rem 0 .35rem;
+}
+.mozketa::before,
+.mozketa::after {
+  content: '';
+  height: 1px;
+  background: #f0c4ab;
+  flex: 1;
+}
+
+@media (max-width: 560px) {
+  .laburpen-ekintzak { margin-left: 0; width: 100%; }
+  .errenkada { grid-template-columns: 2rem 64px 1fr; gap: .6rem; }
+  .errenkada .irudi { width: 64px; height: 48px; }
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Argazkia falta da">
+  <rect width="800" height="600" fill="#e9e7e3"/>
+  <rect x="1.5" y="1.5" width="797" height="597" fill="none" stroke="#d5d2cc" stroke-width="3"/>
+  <g fill="none" stroke="#b3aea6" stroke-width="10" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="250" y="210" width="300" height="200" rx="16"/>
+    <path d="M210 250h40l22-30h256l22 30h40"/>
+    <circle cx="400" cy="310" r="52"/>
+  </g>
+  <text x="400" y="470" text-anchor="middle" font-family="system-ui, sans-serif" font-size="26" fill="#8d8880">argazkia falta da</text>
+</svg>
