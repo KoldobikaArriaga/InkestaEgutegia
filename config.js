@@ -7,7 +7,7 @@
  *           ibiliko da eta ez da ezer gordeko.
  * ========================================================= */
 
-const CONFIG = {
+window.CONFIG = {
   // Adibidea: 'https://script.google.com/macros/s/AKfycb.../exec'
   API_URL: 'https://script.google.com/macros/s/AKfycbzBz6gcmlNUqvKWDSYDB_SaretkhKzpjluIbNQAjvG5bUnjwKCcay3XuGSYbfLpt7EH/exec',
 

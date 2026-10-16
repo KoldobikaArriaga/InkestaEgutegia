@@ -8,7 +8,7 @@
  *  Irudia falta bada, "img/placeholder.svg" agertuko da.
  * ========================================================= */
 
-const ARGAZKIAK = [
+window.ARGAZKIAK = [
   { id: '01', fitxategia: 'img/01.jpg', izenburua: '' },
   { id: '02', fitxategia: 'img/02.jpg', izenburua: '' },
   { id: '03', fitxategia: 'img/03.jpg', izenburua: '' },

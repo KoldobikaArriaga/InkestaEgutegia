@@ -18,6 +18,11 @@
   function hasi() {
     if (!window.ARGAZKIAK || !window.CONFIG) {
       console.error('config.js / photos.js falta dira.');
+      var mezuaEl = document.getElementById('agindua');
+      if (mezuaEl) {
+        mezuaEl.textContent = 'Errorea: ezin izan dira config.js / photos.js kargatu. ' +
+          'Egiaztatu fitxategiok behar bezala igo direla.';
+      }
       return;
     }
     document.getElementById('urtea').textContent = CONFIG.URTEKO;

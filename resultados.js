@@ -14,6 +14,7 @@
   function hasi() {
     if (!window.CONFIG || !window.ARGAZKIAK) {
       console.error('config.js / photos.js falta dira.');
+      mezua('Errorea: ezin izan dira config.js / photos.js kargatu. Egiaztatu fitxategiok igo direla.');
       return;
     }
 
