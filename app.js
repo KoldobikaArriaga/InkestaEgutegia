@@ -21,7 +21,7 @@
       var mezuaEl = document.getElementById('agindua');
       if (mezuaEl) {
         mezuaEl.textContent = 'Errorea: ezin izan dira config.js / photos.js kargatu. ' +
-          'Egiaztatu fitxategiok behar bezala igo direla.';
+          'Egiaztatu fitxategiak behar bezala igo direla.';
       }
       return;
     }
@@ -104,7 +104,7 @@
       hautatuak.delete(id);
     } else {
       if (hautatuak.size >= CONFIG.MAX) {
-        abisua('Gehienez ' + CONFIG.MAX + ' argazki aukeratu ahal dituk. Kendu bat lehenago.');
+        abisua('Gehienez ' + CONFIG.MAX + ' argazki aukeratu ahal dozuz. Aurrena, kenduzazu bat.');
         return;
       }
       hautatuak.add(id);
@@ -132,13 +132,13 @@
     var max = CONFIG.MAX;
 
     if (n === 0) {
-      return 'Klikatu gustatzen jatzun argazkietan. Gutxienez ' + min + ', gehienez ' + max + ' aukeratu.';
+      return 'Klikatu gustetan jatzuzan argazkietan. Gutxienez ' + min + ', gehienez ' + max + ' aukeratu.';
     }
     if (n < min) {
-      return n + ' aukeratuta. Gutxienez ' + min + ' behar dituk, gehienez ' + max + '.';
+      return n + ' aukeratuta. Gutxienez ' + min + ' behar dozuz, gehienez ' + max + '.';
     }
     if (n < max) {
-      return n + ' aukeratuta. Ondo! Nahi izanez gero, ' + (max - n) + ' aukera zeinkez gehiago.';
+      return n + ' aukeratuta. Ondo! Gura izanez gero, beste ' + (max - n) + ' aukeratu ahal dozuz.';
     }
     return max + ' aukeratuta. Ezin dozu gehiago aukeratu — aldatzeko, klikatu barriro kentzeko.';
   }
@@ -202,7 +202,7 @@
 
     var izena = $('#izena').value.trim();
     if (!izena) {
-      erakutsiErrorea('Idatzi zeure izena, mesedez.');
+      erakutsiErrorea('Idatzi zure izena, mesedez.');
       $('#izena').focus();
       return;
     }
@@ -253,11 +253,11 @@
 
     var t = $('#eskerrak-testua');
     if (res && res.demo) {
-      t.textContent = 'Proba-moduan zagoz (zerbitzaria ez dago konektatuta). Zeure aukera gordeta geratu da.';
+      t.textContent = 'Proba-moduan zagoz (zerbitzaria ez dago konektatuta). Zure aukera gordeta geratu da.';
     } else if (res && res.eguneratua) {
-      t.textContent = 'Badirudi email horregaz lehenago be bozkatu zenduala, eta zeure aukera eguneratu dogu. Mila esker!';
+      t.textContent = 'Badirudi email horregaz lehenago be bozkatu dozula, eta zure aukera eguneratu dogu. Mila esker!';
     } else {
-      t.textContent = 'Zeure bozka ondo jaso dogu. Mila esker egutegia aukeratzen laguntzeagatik!';
+      t.textContent = 'Zure bozka ondo jaso dogu. Mila esker egutegia aukeratzen laguntzeagatik!';
     }
     zabaldu('#eskerrak');
   }
@@ -326,7 +326,7 @@
 
     var oharra = $('#ohar-berria');
     oharra.hidden = false;
-    oharra.textContent = 'Honezkero bozkatu dozu tresna honetatik. Zeure aukerak aldatu nahi badituzu, egin eta bidali barriro: aurrekoak ordeztuko dira.';
+    oharra.textContent = 'Dagoneko bozkatu dozu tresna honetatik. Zure aukerak aldatu gura badozuz, egin eta bidali barriro: aurrekoak ordeztuko dira.';
 
     if (d.izena) $('#izena').value = d.izena;
     if (d.email) $('#email').value = d.email;
