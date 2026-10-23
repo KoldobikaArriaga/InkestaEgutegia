@@ -38,7 +38,7 @@ window.ARGAZKIAK = [
   { id: '27', fitxategia: 'img/27.jpg', izenburua: 'Zuhaitza Urbasa' },
   { id: '28', fitxategia: 'img/28.jpg', izenburua: 'Enborra Urbasa' },
   { id: '29', fitxategia: 'img/29.jpg', izenburua: 'Eklipse panorama' },
-  { id: '30', fitxategia: 'img/30.jpg', izenburua: 'Eklipse totala' },
+
   { id: '31', fitxategia: 'img/31.jpg', izenburua: 'Perseidak 2027' },
   { id: '32', fitxategia: 'img/32.jpg', izenburua: 'Eklipsea eta ni' },
 ];
