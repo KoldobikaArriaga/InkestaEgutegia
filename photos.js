@@ -33,4 +33,12 @@ window.ARGAZKIAK = [
   { id: '22', fitxategia: 'img/22.jpg', izenburua: '' },
   { id: '23', fitxategia: 'img/23.jpg', izenburua: '' },
   { id: '24', fitxategia: 'img/24.jpg', izenburua: '' },
+  { id: '25', fitxategia: 'img/25.jpg', izenburua: '' },
+  { id: '26', fitxategia: 'img/26.jpg', izenburua: '' },
+  { id: '27', fitxategia: 'img/27.jpg', izenburua: '' },
+  { id: '28', fitxategia: 'img/28.jpg', izenburua: '' },
+  { id: '29', fitxategia: 'img/29.jpg', izenburua: '' },
+  { id: '30', fitxategia: 'img/30.jpg', izenburua: '' },
+  { id: '31', fitxategia: 'img/31.jpg', izenburua: '' },
+  { id: '32', fitxategia: 'img/32.jpg', izenburua: '' },
 ];
